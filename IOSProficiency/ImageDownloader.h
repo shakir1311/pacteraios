@@ -12,9 +12,9 @@
 @interface ImageDownloader : NSObject
 {
     @private
-    NSIndexPath *theIndexPath;
-    NSMutableData *receivedData;
-    NSURLConnection *theConnection;
+    NSIndexPath *theIndexPath;      //this will hold the indexpath of the cell. it will be sent in the NSNotification that will be posted
+    NSMutableData *receivedData;    //to hold the data received from NSURLConnection
+    NSURLConnection *theConnection; //the NSURLConnection that will download the image
 
 }
 

@@ -10,6 +10,7 @@
 
 @implementation ImageDownloader
 
+//this function will be called from AppDelegate and will return immediately (as no synchronous things to hold it waiting). The NSURLConnection will keep downloadin the image in background and upon completion/failure/error will notify the AppDelegate
 -(void)startDownloadingImageForIndexPath:(NSIndexPath*)iPath fromURLString:(NSString*)theURL
 {
     theIndexPath = iPath;
@@ -22,6 +23,8 @@
     
 }
 
+
+//standard NSURLConnection delegate methods
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     [receivedData appendData:data];

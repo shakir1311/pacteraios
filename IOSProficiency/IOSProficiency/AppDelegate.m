@@ -6,6 +6,15 @@
 //  Copyright (c) 2015 Shakir Zareen. All rights reserved.
 //
 
+
+////****************Note: Using Non ARC code is painfully difficult with this version on XCode
+////**************** In simple terms in NON ARC we have to release/retain the object.
+////**************** This will decrease/increase retaincount. When retain count = 0 the object
+////**************** is Garbage collected. THis can easily lead to memory leakage/null reference
+////**************** /orphan objects. ARC takes care of that problem by proactively looking into the
+////**************** refrecnes to an object and if (decided by utilizing complex algo) the object is no longer
+////**************** needed then it is garbage collected and memory is freed up
+
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
@@ -18,6 +27,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    
+    //////////////////////////////////////////
+    //So here we will create all the interface objects by code. More effort vould be done to
+    //support various screen sizes and orientations. But you know good programmers are lazy ;)
+    //
+    /////////////////////////////////////////
     CGRect mainScreenBounds = [UIScreen mainScreen].bounds;
     CGFloat navBarHeight = 64;
     
@@ -51,6 +66,18 @@
     self.window.rootViewController = cntrl;
     [self.window makeKeyAndVisible];
     
+    
+    //This is the main trick part which makes the image load in background
+    //We had following objectives:
+    //  - Load Image in BG
+    //  - Once loaded show in the respective cell
+    //  - Once commpleted release the associated Imagedownloader
+    //  - Keep memory usage as low as possible
+    //So this notification object will contain the image, indexpath and reference to the
+    //sending imagedownloader object
+    //
+    //Note that this could have been donw in various other methods. But this one seemed most appealing to
+    //me as it is straightforward and easier to debug
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(displayDownloadedImage:)
                                                  name:@"displayDownloadedImage" object:nil];
@@ -58,6 +85,8 @@
     return YES;
 }
 
+//This is the function that will be called once we receive a response from
+//the imagedownloader object. We may receive an image, error or null (which is taken care of while returning from imagedownloader
 -(void)displayDownloadedImage:(NSNotification *)notification
 {
     NSDictionary *dict = (NSDictionary*)[notification userInfo];
@@ -67,6 +96,7 @@
     
     UIImageView *imgView = (UIImageView*)[[[tblView cellForRowAtIndexPath:iPath] contentView] viewWithTag:30];
     imgView.image = image;
+    
     
     ImageDownloader *iDownloader = notification.object;
     iDownloader = nil;
@@ -80,6 +110,11 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //This part is not in best shape but works. SO effectively we do following
+    //  check the size of string (in UI points) and then allocate that much space for the
+    //  UILabel (that will display the string). However we also need to take care of the cases
+    //  when the string is too short. So we take MAX value out of the string height anf the UIImage height
+    
     id objDescription = [[allRows objectAtIndex:indexPath.row] objectForKey:@"description"];
     if ( [objDescription isKindOfClass:[NSNull class] ])
     {
@@ -95,6 +130,10 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // We are going to custom create two UILabels and One UIImageView. Since we dont want the
+    // defautl layout of UITableViewCell. This could have been done in a perfect way - maybe -
+    // by adjusting the frames of existing titlelabel, detaillable and imageview. But I prefered
+    // doing from scratch for a better understanding
     static NSString *MyIdentifier = @"cellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     
@@ -106,6 +145,7 @@
         
     }
     
+//We want to empty the contentview before shafting in more subviews. Otherwise the cell will become an endless pile of unutilized UILabels and UIImageViews
     for ( UIView *vv in cell.contentView.subviews)
     {
         [vv removeFromSuperview];
@@ -169,20 +209,17 @@
     {
         
         imageView.image = [UIImage imageNamed:@"loading.png"];
-        
+//This is where we will Asycnhronouly download the image
         ImageDownloader *iDownloader = [[ImageDownloader alloc] init];
         [iDownloader startDownloadingImageForIndexPath:indexPath fromURLString:objImageHRef];
     }
-    NSLog(@"%@",@"cell created");
-    //NSLog(@"%@",[[[allRows objectAtIndex:indexPath.row] objectForKey:@"title"] class]);
     return cell;
 }
 
 -(CGRect)getSizeForString:(NSString*)str
 {
+    //Copied code from internet. It works somehow with 90% accuracy
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:14]};
-    // NSString class method: boundingRectWithSize:options:attributes:context is
-    // available only on ios7.0 sdk.
     return [str boundingRectWithSize:CGSizeMake(220, CGFLOAT_MAX)
                                               options:NSStringDrawingUsesLineFragmentOrigin
                                            attributes:attributes
@@ -196,6 +233,7 @@
 
 -(void)startAnimating
 {
+    //Disable UserInteraction, show the activityindicator and start animation and bring it to front as well
     if ( activityIndicatorView == nil )
     {
         activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -214,7 +252,7 @@
 
 -(void)stopAnimating
 {
-    
+    //reverse what we did in start animating
     [activityIndicatorView setHidden:true];
     [activityIndicatorView stopAnimating];
     [cntrl.view setUserInteractionEnabled:true];
@@ -226,6 +264,7 @@
 
 -(IBAction)refreshAction:(id)sender
 {
+    //This part will call the actual feed to start loading
     [self startAnimating];
     [self loadDataFromURL];
 }
