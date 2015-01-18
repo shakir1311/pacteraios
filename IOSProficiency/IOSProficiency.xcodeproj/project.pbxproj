@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14D888C51A62DB4E003FEC11 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D888BF1A62DB4E003FEC11 /* CJSONDeserializer.m */; };
+		14D888C61A62DB4E003FEC11 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D888C11A62DB4E003FEC11 /* CJSONSerializer.m */; };
+		14D888C71A62DB4E003FEC11 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D888C41A62DB4E003FEC11 /* NSDictionary_JSONExtensions.m */; };
+		14D888CD1A62FDE6003FEC11 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 14D888CB1A62FDE6003FEC11 /* loading.png */; };
+		14D888CE1A62FDE6003FEC11 /* noimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 14D888CC1A62FDE6003FEC11 /* noimage.png */; };
+		14D888D11A64574F003FEC11 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D888D01A64574F003FEC11 /* ImageDownloader.m */; };
 		14F38EBA1A5BC80B00562A21 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F38EB91A5BC80B00562A21 /* main.m */; };
 		14F38EBD1A5BC80B00562A21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F38EBC1A5BC80B00562A21 /* AppDelegate.m */; };
-		14F38EC01A5BC80B00562A21 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F38EBF1A5BC80B00562A21 /* ViewController.m */; };
-		14F38EC31A5BC80B00562A21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F38EC11A5BC80B00562A21 /* Main.storyboard */; };
-		14F38EC51A5BC80B00562A21 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14F38EC41A5BC80B00562A21 /* Images.xcassets */; };
-		14F38EC81A5BC80B00562A21 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14F38EC61A5BC80B00562A21 /* LaunchScreen.xib */; };
 		14F38ED41A5BC80B00562A21 /* IOSProficiencyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F38ED31A5BC80B00562A21 /* IOSProficiencyTests.m */; };
 /* End PBXBuildFile section */
 
@@ -27,16 +29,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14D888BE1A62DB4E003FEC11 /* CJSONDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONDeserializer.h; sourceTree = "<group>"; };
+		14D888BF1A62DB4E003FEC11 /* CJSONDeserializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONDeserializer.m; sourceTree = "<group>"; };
+		14D888C01A62DB4E003FEC11 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
+		14D888C11A62DB4E003FEC11 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
+		14D888C21A62DB4E003FEC11 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
+		14D888C31A62DB4E003FEC11 /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionary_JSONExtensions.h; sourceTree = "<group>"; };
+		14D888C41A62DB4E003FEC11 /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_JSONExtensions.m; sourceTree = "<group>"; };
+		14D888CB1A62FDE6003FEC11 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
+		14D888CC1A62FDE6003FEC11 /* noimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noimage.png; sourceTree = "<group>"; };
+		14D888CF1A64574F003FEC11 /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
+		14D888D01A64574F003FEC11 /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
 		14F38EB41A5BC80B00562A21 /* IOSProficiency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSProficiency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14F38EB81A5BC80B00562A21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14F38EB91A5BC80B00562A21 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		14F38EBB1A5BC80B00562A21 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		14F38EBC1A5BC80B00562A21 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		14F38EBE1A5BC80B00562A21 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		14F38EBF1A5BC80B00562A21 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		14F38EC21A5BC80B00562A21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		14F38EC41A5BC80B00562A21 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		14F38EC71A5BC80B00562A21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		14F38ECD1A5BC80B00562A21 /* IOSProficiencyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSProficiencyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14F38ED21A5BC80B00562A21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14F38ED31A5BC80B00562A21 /* IOSProficiencyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSProficiencyTests.m; sourceTree = "<group>"; };
@@ -60,9 +68,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14D888BD1A62DB4E003FEC11 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				14D888BE1A62DB4E003FEC11 /* CJSONDeserializer.h */,
+				14D888BF1A62DB4E003FEC11 /* CJSONDeserializer.m */,
+				14D888C01A62DB4E003FEC11 /* CJSONSerializer.h */,
+				14D888C11A62DB4E003FEC11 /* CJSONSerializer.m */,
+				14D888C21A62DB4E003FEC11 /* JSONRepresentation.h */,
+				14D888C31A62DB4E003FEC11 /* NSDictionary_JSONExtensions.h */,
+				14D888C41A62DB4E003FEC11 /* NSDictionary_JSONExtensions.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		14F38EAB1A5BC80B00562A21 = {
 			isa = PBXGroup;
 			children = (
+				14D888CF1A64574F003FEC11 /* ImageDownloader.h */,
+				14D888D01A64574F003FEC11 /* ImageDownloader.m */,
+				14D888CB1A62FDE6003FEC11 /* loading.png */,
+				14D888CC1A62FDE6003FEC11 /* noimage.png */,
+				14D888BD1A62DB4E003FEC11 /* Source */,
 				14F38EB61A5BC80B00562A21 /* IOSProficiency */,
 				14F38ED01A5BC80B00562A21 /* IOSProficiencyTests */,
 				14F38EB51A5BC80B00562A21 /* Products */,
@@ -83,11 +110,6 @@
 			children = (
 				14F38EBB1A5BC80B00562A21 /* AppDelegate.h */,
 				14F38EBC1A5BC80B00562A21 /* AppDelegate.m */,
-				14F38EBE1A5BC80B00562A21 /* ViewController.h */,
-				14F38EBF1A5BC80B00562A21 /* ViewController.m */,
-				14F38EC11A5BC80B00562A21 /* Main.storyboard */,
-				14F38EC41A5BC80B00562A21 /* Images.xcassets */,
-				14F38EC61A5BC80B00562A21 /* LaunchScreen.xib */,
 				14F38EB71A5BC80B00562A21 /* Supporting Files */,
 			);
 			path = IOSProficiency;
@@ -199,9 +221,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14F38EC31A5BC80B00562A21 /* Main.storyboard in Resources */,
-				14F38EC81A5BC80B00562A21 /* LaunchScreen.xib in Resources */,
-				14F38EC51A5BC80B00562A21 /* Images.xcassets in Resources */,
+				14D888CE1A62FDE6003FEC11 /* noimage.png in Resources */,
+				14D888CD1A62FDE6003FEC11 /* loading.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,9 +240,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14F38EC01A5BC80B00562A21 /* ViewController.m in Sources */,
+				14D888C71A62DB4E003FEC11 /* NSDictionary_JSONExtensions.m in Sources */,
+				14D888C51A62DB4E003FEC11 /* CJSONDeserializer.m in Sources */,
 				14F38EBD1A5BC80B00562A21 /* AppDelegate.m in Sources */,
 				14F38EBA1A5BC80B00562A21 /* main.m in Sources */,
+				14D888D11A64574F003FEC11 /* ImageDownloader.m in Sources */,
+				14D888C61A62DB4E003FEC11 /* CJSONSerializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,25 +266,6 @@
 			targetProxy = 14F38ECE1A5BC80B00562A21 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		14F38EC11A5BC80B00562A21 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				14F38EC21A5BC80B00562A21 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		14F38EC61A5BC80B00562A21 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				14F38EC71A5BC80B00562A21 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		14F38ED51A5BC80B00562A21 /* Debug */ = {
@@ -412,6 +417,7 @@
 				14F38ED91A5BC80B00562A21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		14F38EDA1A5BC80B00562A21 /* Build configuration list for PBXNativeTarget "IOSProficiencyTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +426,7 @@
 				14F38EDC1A5BC80B00562A21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
